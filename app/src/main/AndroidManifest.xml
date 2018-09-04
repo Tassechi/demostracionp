@@ -22,10 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".Main3Activity" />
         <activity android:name=".Inicio.Reset_Password" />
         <activity android:name=".Inicio.Signup" />
-        <activity android:name=".fragments.MascotaFragment" />
     </application>
 
 </manifest>

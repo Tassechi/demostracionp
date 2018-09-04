@@ -5,4 +5,12 @@
     android:background="@color/white"
     >
 
+    <Button
+        android:id="@+id/salirid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        />
+
+
 </LinearLayout>
