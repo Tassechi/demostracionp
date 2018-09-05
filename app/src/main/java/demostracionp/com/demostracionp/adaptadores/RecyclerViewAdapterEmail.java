@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import demostracionp.com.demostracionp.R;
 import demostracionp.com.demostracionp.entidades.Contact;
 
@@ -54,7 +55,7 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
 
         private TextView Titulo01;
         private TextView contenido01;
-        private ImageView imagen01;
+        private CircleImageView imagen01;
 
 
         public My1ViewHolder(View itemView) {
@@ -62,7 +63,7 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
 
             Titulo01 = (TextView) itemView.findViewById(R.id.tituloid);
             contenido01 = (TextView) itemView.findViewById(R.id.conteidoid);
-            imagen01 = (ImageView) itemView.findViewById(R.id.imagenid);
+            imagen01 = (CircleImageView) itemView.findViewById(R.id.circleid);
 
         }
     }

@@ -45,8 +45,8 @@ public class CorreoFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         sdContact = new ArrayList<>();
-        sdContact.add(new Contact("Amelia Margaret", "Estamos cordinando la entrega",R.drawable.cliente1));
-        sdContact.add(new Contact("Jose Perez", "Disculpe con una pregunta, se puede bajar el precio si entrego la comida que tengo",R.drawable.cleinte2));
+        sdContact.add(new Contact("Fabio Lopez", "Coordinacion de encuentro","Buenas noches querido usuario                               Se le informa que la entrega del perro llamado Lucas sera a las 10AM en el parque central.",R.drawable.f,R.drawable.perrito));
+        sdContact.add(new Contact("Gabriela Montez", "Consulta","Disculpe con una pregunta, se puede bajar el precio si entrego la comida que tengo",R.drawable.g,R.drawable.cliente4));
 
     }
 }
