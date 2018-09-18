@@ -24,6 +24,9 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".Inicio.Reset_Password" />
         <activity android:name=".Inicio.Signup" />
+        <activity android:name=".PerfilUsuario" />
+        <activity android:name=".PerfilCorreo" />
+        <activity android:name=".PerfilAsociaciones"></activity>
     </application>
 
 </manifest>

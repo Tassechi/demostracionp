@@ -15,13 +15,14 @@ import java.util.List;
 
 import demostracionp.com.demostracionp.R;
 import demostracionp.com.demostracionp.adaptadores.RecyclerViewAdapter;
+import demostracionp.com.demostracionp.adaptadores.RecyclerViewAdapterEmail;
 import demostracionp.com.demostracionp.entidades.Contact;
 
 public class CorreoFragment extends Fragment {
 
     View v;
     private RecyclerView emailrecyclerview1;
-    private List<Contact> sdContact;
+    private List<Contact> sdCorreo;
 
 
     public CorreoFragment() {
@@ -34,7 +35,7 @@ public class CorreoFragment extends Fragment {
         v= inflater.inflate(R.layout.email_fragment,container,false);
 
         emailrecyclerview1 = (RecyclerView) v.findViewById(R.id.emailrecycler);
-        RecyclerViewAdapter recyclerAdapter = new RecyclerViewAdapter(getContext(),sdContact);
+        RecyclerViewAdapterEmail recyclerAdapter = new RecyclerViewAdapterEmail(getContext(),sdCorreo,this);
         emailrecyclerview1.setLayoutManager(new LinearLayoutManager(getActivity()));
         emailrecyclerview1.setAdapter(recyclerAdapter);
         return v;
@@ -44,9 +45,9 @@ public class CorreoFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        sdContact = new ArrayList<>();
-        sdContact.add(new Contact("Fabio Lopez", "Coordinacion de encuentro","Buenas noches querido usuario                               Se le informa que la entrega del perro llamado Lucas sera a las 10AM en el parque central.",R.drawable.f,R.drawable.perrito));
-        sdContact.add(new Contact("Gabriela Montez", "Consulta","Disculpe con una pregunta, se puede bajar el precio si entrego la comida que tengo",R.drawable.g,R.drawable.cliente4));
+        sdCorreo = new ArrayList<>();
+        sdCorreo.add(new Contact("Fabio Lopez", "Coordinacion de encuentro","Buenas noches querido usuario                               Se le informa que la entrega del perro llamado Lucas sera a las 10AM en el parque central.",R.drawable.f,R.drawable.perrito));
+        sdCorreo.add(new Contact("Gabriela Montez", "Consulta","Disculpe con una pregunta, se puede bajar el precio si entrego la comida que tengo",R.drawable.g,R.drawable.cliente4));
 
     }
 }

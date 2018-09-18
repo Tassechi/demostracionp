@@ -2,30 +2,35 @@ package demostracionp.com.demostracionp.adaptadores;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import demostracionp.com.demostracionp.entidades.Contact;
 import demostracionp.com.demostracionp.R;
+import demostracionp.com.demostracionp.fragments.CallFragment;
+import demostracionp.com.demostracionp.PerfilUsuario;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>  implements View.OnClickListener{
 
     Context mContext;
     List<Contact> mData;
     Dialog myDialog;
+    CallFragment mFragment;
 
-    public RecyclerViewAdapter(Context mContex, List<Contact> mData) {
+    public RecyclerViewAdapter(Context mContex, List<Contact> mData, CallFragment mFragment) {
         this.mContext = mContex;
         this.mData = mData;
+        this.mFragment = mFragment;
     }
 
     @NonNull
@@ -37,23 +42,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final MyViewHolder vHolder = new MyViewHolder(v);
 
         myDialog = new Dialog(mContext);
-        myDialog.setContentView(R.layout.solicitud_item);
+        myDialog.setContentView(R.layout.activity_perfil_usuario);
+
+
 
         vHolder.contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView dialog_name = (TextView)myDialog.findViewById(R.id.nombretrabajador);
-                TextView dialog_descripcion = (TextView) myDialog.findViewById(R.id.descripciontrabajador);
-                ImageView idalog_img =(ImageView) myDialog.findViewById(R.id.imagentrabajador);
+
+                TextView dialog_name = (TextView) myDialog.findViewById(R.id.idnombretrabajador);
+                TextView dialog_descripcion = (TextView) myDialog.findViewById(R.id.iddescripciontrabajador);
+                ImageView dialog_img = (ImageView)myDialog.findViewById(R.id.idimagentrabajador);
+                Button btnTrabajo = (Button)myDialog.findViewById(R.id.btnTrabajo);
+
+                btnTrabajo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mFragment.getActivity(), PerfilUsuario.class);
+                        mFragment.getActivity().startActivity(intent);
+                    }
+                });
 
                 dialog_name.setText(mData.get(vHolder.getAdapterPosition()).getName());
-                dialog_descripcion.setText((CharSequence) mData.get(vHolder.getAdapterPosition()).getDescripcion());
-                idalog_img.setImageResource(mData.get(vHolder.getAdapterPosition()).getImagenCorreo());
+                dialog_descripcion.setText(mData.get(vHolder.getAdapterPosition()).getDescripcion());
+                dialog_img.setImageResource(mData.get(vHolder.getAdapterPosition()).getImagenId());
 
-                Toast.makeText(mContext, "Click", Toast.LENGTH_LONG).show();
+
                 myDialog.show();
+
+
             }
         });
+
 
         return vHolder;
     }
@@ -66,12 +86,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.img.setImageResource(mData.get(position).getImagenId());
 
 
+
+
     }
 
     @Override
     public int getItemCount() {
         return mData.size();
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 

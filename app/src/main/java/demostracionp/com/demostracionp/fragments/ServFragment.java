@@ -16,6 +16,7 @@ import java.util.List;
 
 import demostracionp.com.demostracionp.R;
 import demostracionp.com.demostracionp.adaptadores.RecyclerViewAdapter;
+import demostracionp.com.demostracionp.adaptadores.RecyclerViewAdapterSer;
 import demostracionp.com.demostracionp.entidades.Contact;
 
 public class ServFragment extends Fragment {
@@ -36,7 +37,7 @@ public class ServFragment extends Fragment {
         v= inflater.inflate(R.layout.serv_fragment,container,false);
 
         emailrecyclerview1 = (RecyclerView) v.findViewById(R.id.recyclerserv);
-        RecyclerViewAdapter recyclerAdapter = new RecyclerViewAdapter(getContext(),sdContact);
+        RecyclerViewAdapterSer recyclerAdapter = new RecyclerViewAdapterSer(getContext(),sdContact, this);
         emailrecyclerview1.setLayoutManager(new LinearLayoutManager(getActivity()));
         emailrecyclerview1.setAdapter(recyclerAdapter);
         return v;
@@ -48,7 +49,7 @@ public class ServFragment extends Fragment {
 
         sdContact = new ArrayList<>();
         sdContact.add(new Contact("Asociaciones", "Ama","Número de cel:                                             correo:ama.adopciones@gmail.com                               Facebook:facebook: Ama Asociacion de amigos por los animales.",R.drawable.ama,R.drawable.ama));
-        sdContact.add(new Contact("Veterinaria", "Disculpe con una pregunta, se puede bajar el precio si entrego la comida que tengo","Se atiende las 24hrs. del dia                               Numero de telefono:2220 4779",R.drawable.veterinaria,R.drawable.veterinaria));
+        sdContact.add(new Contact("Veterinaria", "El cuidado necesario para una mascota","Se atiende las 24hrs. del dia                               Numero de telefono:2220 4779",R.drawable.veterinaria,R.drawable.veterinaria));
         sdContact.add(new Contact("Grooming","Esteticas Para Mascotas","Se atiende toda clase de mascotas, el paquete incluye baño, corte de pelo y garras y una revision general.",R.drawable.grooming,R.drawable.grooming));
         sdContact.add(new Contact("Escuelas Para Mascotas", "Entrenamiento Para Mascotas","La escuela Entrenamiento Feliz se orgullese de 10 años de entrenamiento, adriestado de toda clase de mascotas,                               Se convierte el perro o gato mas revelde en el mas docil, a su vez de entrenar con trucos que todo dueño desearia ver con su mascota.",R.drawable.escuela,R.drawable.escuela));
         sdContact.add(new Contact("Entretenimiento y Curiosidades", "Revista PETmi","Una revista con suriosidades, Datos interesantes sobre tu mascotas, al igual que un pequeño directorio en caso de necesitar informacion sobre las necesitades de tu mascota.",R.drawable.petmi,R.drawable.petmi));
@@ -56,4 +57,3 @@ public class ServFragment extends Fragment {
 
     }
 }
-
